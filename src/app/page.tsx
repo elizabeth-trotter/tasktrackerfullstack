@@ -1,7 +1,10 @@
 'use client'
+import { Navbar } from "flowbite-react";
 import Image from "next/image";
 import HideIcon from "@/app/assets/HidePassword.png"
-import { useState } from "react";
+import { useState } from "react";import NavbarComponent from "./components/NavbarComponent";
+import Profile from "./ProfilePage/page";
+
 export default function Home() {
   const [registerBool, setRegisterBool] = useState<boolean>(true);
   const [hidePasswordBool, setHidePasswordBool] = useState<boolean>(true);
@@ -23,7 +26,9 @@ export default function Home() {
   }
 
   return (
+    
     <div>
+      <Profile />
       <div className="grid grid-flow-row justify-center pt-[6.687rem]">
         <div className="bg-[#3EBE9F] rounded-[5px] py-[80px]">
           <div>
