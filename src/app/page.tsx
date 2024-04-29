@@ -28,7 +28,7 @@ export default function Home() {
   return (
     
     <div>
-      <Profile />
+      <NavbarComponent />
       <div className="grid grid-flow-row justify-center pt-[6rem] pb-[145px]">
         <div className="bg-[#3EBE9F] rounded-[5px] py-[70px]">
           <div>
