@@ -71,7 +71,7 @@ export default function Home() {
               }
               {
                 registerBool ? <p className="font-[HammersmithOne] text-[20px]">Already have an account? <span onClick={handleRegister} className="underline cursor-pointer">Login</span></p>
-                :               <p className="font-[HammersmithOne] text-[20px]">Don't have an account? <span onClick={handleRegister} className="underline cursor-pointer">Create one now!</span></p>
+                :               <p className="font-[HammersmithOne] text-[20px]">Don&apos;t have an account? <span onClick={handleRegister} className="underline cursor-pointer">Create one now!</span></p>
 
               }
             </div>
