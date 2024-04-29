@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import NavbarComponent from '../components/NavbarComponent'
 import Image from 'next/image'
