@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import NavbarComponent from '../components/NavbarComponent'
 import InviteUserBtn from '@/app/assets/InviteUserBtn.png'
