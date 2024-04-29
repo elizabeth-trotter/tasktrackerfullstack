@@ -3,9 +3,9 @@ import NavbarComponent from '../components/NavbarComponent'
 
 const Profile = () => {
   return (
-    <div>
+    <>
       <NavbarComponent />
-    </div>
+    </>
   )
 }
 
