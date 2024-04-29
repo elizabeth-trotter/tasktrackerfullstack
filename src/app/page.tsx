@@ -29,20 +29,20 @@ export default function Home() {
     
     <div>
       <Profile />
-      <div className="grid grid-flow-row justify-center pt-[6.687rem]">
-        <div className="bg-[#3EBE9F] rounded-[5px] py-[80px]">
+      <div className="grid grid-flow-row justify-center pt-[6rem] pb-[145px]">
+        <div className="bg-[#3EBE9F] rounded-[5px] py-[70px]">
           <div>
             {registerBool ? <p className="text-[48px] font-[HoltwoodOneSC] text-center px-[112px]">Create Account</p> : <p className="text-[48px] font-[HoltwoodOneSC] text-center px-[270px]">Login</p>}
           </div>
           <div className="pt-[40px]">
 
             <div className="pb-[30px] px-[70px]">
-              <p className="text-[24px] font-[HammersmithOne]">Username</p>
+              <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Username</p>
               <input type="text" className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
             </div>
 
             <div className="pb-[30px] px-[70px]">
-              <p className="text-[24px] font-[HammersmithOne]">Password</p>
+              <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Password</p>
               <div className='relative flex items-center'>
                 <input type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
                 <div className='absolute right-0 top-0 bottom-0 flex items-center'>
@@ -54,7 +54,7 @@ export default function Home() {
             </div>
 
             {registerBool ? <div className="pb-[40px] px-[70px]">
-              <p className="text-[24px] font-[HammersmithOne]">Confirm Password</p>
+              <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Confirm Password</p>
               <div className='relative flex items-center'>
                 <input type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
                 <div className='absolute right-0 top-0 bottom-0 flex items-center'>
