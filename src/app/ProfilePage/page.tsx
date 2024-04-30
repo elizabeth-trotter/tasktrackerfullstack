@@ -12,7 +12,7 @@ const Profile = () => {
   
   return (
     <>
-      <NavbarComponent />
+      <NavbarComponent userColor={userColor}/>
 
       <div className='bg-[#F1FFFC] h-screen'>
         <div className='grid grid-cols-3 gap-8 py-8 px-8'>
