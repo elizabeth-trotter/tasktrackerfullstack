@@ -1,8 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Image from "next/image";
-import Logo from '@/app/assets/Logo.png'
+import Logo from '@/app/assets/Logo.png';
+import { Dropdown } from "flowbite-react";
+import Link from 'next/link';
+import SignOut from '@/app/assets/SignOut.png';
 
 interface NavbarProps {
   userColor?: string;
@@ -11,9 +14,14 @@ interface NavbarProps {
 const NavbarComponent = ({ userColor }: NavbarProps) => {
   console.log(userColor);
   return (
-    <nav className='h-24 bg-gradient-to-r from-[#AEE6D9] to-[#3EBE9F] flex justify-between items-center px-5'>
-      <Image src={Logo} alt="logo" height={80} className='pb-3'/>
-      <div className={`${userColor ? `bg-[${userColor}] border border-black rounded-full h-12 w-12` : ''}`}></div>
+    <nav className='h-24 bg-gradient-to-r from-[#AEE6D9] to-[#3EBE9F] flex justify-between items-center px-5 font-[HammersmithOne]'>
+      <Image src={Logo} alt="logo" height={80} className='pb-3' />
+
+      <Dropdown label="" dismissOnClick={false} renderTrigger={() => <span className={`${userColor ? `bg-[${userColor}] border border-black rounded-full h-12 w-12` : ''}`}></span>}>
+        <Dropdown.Item as={Link} href="/ProfilePage"><span className='text-lg ps-7'>PROFILE</span></Dropdown.Item>
+        <Dropdown.Item as={Link} href="/BoardPage"><span className='text-[#0B7D61] text-lg'>CREATE BOARD</span></Dropdown.Item>
+        <Dropdown.Item as={Link} href="/"><span className='text-[#CD0000] text-lg ps-3'>LOG OUT</span> <Image src={SignOut} alt="sign out icon" className='pb-2 ps-2'/></Dropdown.Item>
+      </Dropdown>
     </nav>
   )
 }
