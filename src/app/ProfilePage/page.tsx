@@ -14,6 +14,8 @@ const Profile = () => {
   const [userColor, setUserColor] = useState('#57CDFF');
   const [username, setUsername] = useState('USERNAME');
   const [dateJoined, setDateJoined] = useState('12/31/1937');
+  const [paintBrushOver, setPaintBrushOver] = useState(false);
+  const [pencilOver, setPencilOver] = useState(false);
 
   let boardBarColorArray = ['#AEE6D9', '#6FDFC4', '#3EBE9F'];
 
@@ -21,9 +23,23 @@ const Profile = () => {
     // setUserColor();
   };
 
+  const handleMouseOverPencil = () => {
+    setPencilOver(true);
+  }
+  const handleMouseOutPencil = () => {
+    setPencilOver(false);
+  }
+  
   const handleUserImageChange = () => {
-
+    
   };
+
+  const handleMouseOverPaintbrush = () => {
+    setPaintBrushOver(true);
+  }
+  const handleMouseOutPaintbrush = () => {
+    setPaintBrushOver(false);
+  }
 
   const handleAddBoard = () => {
 
@@ -36,16 +52,19 @@ const Profile = () => {
       <div className='bg-[#F1FFFC] h-screen font-[HammersmithOne]'>
         <div className='grid grid-cols-3 gap-8 py-8 px-8'>
           <div className='flex flex-col items-center gap-7'>
-            <div className='pt-4 flex justify-center items-baseline'>
-              <Image src={PaintBrush} alt='add icon button' height={30} onClick={handleUserColorChange} className='cursor-pointer' />
+            <div className='pt-4 flex justify-center items-baseline relative'>
+              <div>
+                <Image src={PaintBrush} alt='add icon button' height={30} onClick={handleUserColorChange} className='cursor-pointer' onMouseOver={handleMouseOverPaintbrush} onMouseOut={handleMouseOutPaintbrush} />
+                <Image src={RandomizeColor} alt="random color mouseover" height={60} className={`absolute right-40 ${paintBrushOver ? 'block' : 'hidden'}`} />
+              </div>
+
               <div className={`bg-[${userColor}] border border-black rounded-full h-44 w-44`}></div>
-              <Image src={Pencil} alt='add icon button' height={30} onClick={handleUserImageChange} className='cursor-pointer' />
-            </div>
-            <div className={`absolute top-80 left-24`}>
-              <Image src={RandomizeColor} alt="random color mouseover" height={60} />
-            </div>
-            <div className={`absolute top-80 left-30`}>
-              <Image src={ProfilePicture} alt="random color mouseover" height={60} />
+
+              <div>
+                <Image src={Pencil} alt='add icon button' height={30} onClick={handleUserImageChange} className='cursor-pointer' onMouseOver={handleMouseOverPencil} onMouseOut={handleMouseOutPencil} />
+                <Image src={ProfilePicture} alt="random color mouseover" height={60} className={`absolute left-40 ${pencilOver ? 'block' : 'hidden'}`} />
+              </div>
+
             </div>
             <div className='text-center'>
               <h1 className='text-4xl'>{username.toUpperCase()}</h1>
