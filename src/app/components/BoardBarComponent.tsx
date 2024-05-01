@@ -15,23 +15,23 @@ const BoardBarComponent = (props: { title: string, boardColor: string }) => {
             <h1 className='text-2xl'>{props.title.toUpperCase()}</h1>
             <div className='flex gap-2'>
                 {
-                    props.boardColor == '#AEE6D9' ?
+                    props.boardColor === '#AEE6D9' ?
                         <>
-                            <div className={`bg-[${userColorsArray[0][0]}] border border-black rounded-full h-8 w-8`}></div>
-                            <div className={`bg-[${userColorsArray[0][1]}] border border-black rounded-full h-8 w-8`}></div>
-                            <div className={`bg-[${userColorsArray[0][2]}] border border-black rounded-full h-8 w-8`}></div>
+                            <div className={`bg-[#57CDFF] border border-black rounded-full h-8 w-8`}></div>
+                            <div className={`bg-[#FF6E6E] border border-black rounded-full h-8 w-8`}></div>
+                            <div className={`bg-[#D59FFF] border border-black rounded-full h-8 w-8`}></div>
                         </>
                         :
-                        props.boardColor == '#6FDFC4' ?
+                        props.boardColor === '#6FDFC4' ?
                             <>
-                                <div className={`bg-[${userColorsArray[1][0]}] border border-black rounded-full h-8 w-8`}></div>
-                                <div className={`bg-[${userColorsArray[1][1]}] border border-black rounded-full h-8 w-8`}></div>
-                                <div className={`bg-[${userColorsArray[1][2]}] border border-black rounded-full h-8 w-8`}></div>
+                                <div className={`bg-[#D3FF57] border border-black rounded-full h-8 w-8`}></div>
+                                <div className={`bg-[#FFC56E] border border-black rounded-full h-8 w-8`}></div>
+                                <div className={`bg-[#57CDFF] border border-black rounded-full h-8 w-8`}></div>
                             </> :
                             <>
-                                <div className={`bg-[${userColorsArray[2][0]}] border border-black rounded-full h-8 w-8`}></div>
-                                <div className={`bg-[${userColorsArray[2][1]}] border border-black rounded-full h-8 w-8`}></div>
-                                <div className={`bg-[${userColorsArray[2][2]}] border border-black rounded-full h-8 w-8`}></div>
+                                <div className={`bg-[#D59FFF] border border-black rounded-full h-8 w-8`}></div>
+                                <div className={`bg-[#57CDFF] border border-black rounded-full h-8 w-8`}></div>
+                                <div className={`bg-[#513DCC] border border-black rounded-full h-8 w-8`}></div>
                             </>
                 }
             </div>
