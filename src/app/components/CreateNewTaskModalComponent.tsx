@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Button, Modal } from "flowbite-react";
+import { Button, Modal, Dropdown } from "flowbite-react";
 import { useState } from "react";
 import Image from "next/image";
 import InviteUserPlus from '@/app/assets/InviteUserPlus.png'
@@ -9,20 +9,30 @@ import XIcon from '@/app/assets/CloseModalIcon.png'
 
 export function CreateNewTask() {
 
-    const [openModal, setOpenModal] = useState(true);
+    const [openModal, setOpenModal] = useState(false);
+    const [selectedValue, setSelectedValue] = useState('');
+    const [selectedValue2, setSelectedValue2] = useState('');
 
-    const [showModal, setShowModal] = useState<string>("hidden")
-    const [showBool, setShowBool] = useState<boolean>(true);
+    const options = [
+        { value: 'to-do', label: 'To-Do' },
+        { value: 'inprogress', label: 'In Progress' },
+        { value: 'completed', label: 'Completed' },
+    ];
+    const options2 = [
+        { value: '1', label: 'Priority - 1' },
+        { value: '2', label: 'Priority - 2' },
+        { value: '3', label: 'Priority - 3' },
+        { value: '4', label: 'Priority - 4' },
+        { value: '5', label: 'Priority - 5' },
+    ];
 
-    const handleShowModal = () => {
-        setShowBool(!showBool)
-        if (showBool) {
-            setShowModal("flex bg-gray-900 bg-opacity-50 dark:bg-opacity-80");
-        } else {
-            setShowModal("hidden")
-        }
+    const handleChange = (event: any) => {
+        setSelectedValue(event.target.value);
+    };
+    const handleChange2 = (event: any) => {
+        setSelectedValue2(event.target.value);
+    };
 
-    }
     return (
         <>
             <button onClick={() => setOpenModal(true)}><Image src={InviteUserPlus} className='h-[20px] w-[20px]' alt="Add Task" /></button>
@@ -37,7 +47,7 @@ export function CreateNewTask() {
                     <p className="text-[24px] font-[HammersmithOne] px-[26px]">Description</p>
                     <div className="px-[26px] flex flex-row justify-between">
                         <div>
-                            <textarea className="min-w-[589px] min-h-[211px]" placeholder="A short description of the task you are viewing.
+                            <textarea className="min-w-[589px] min-h-[211px] bg-[#F4F4F4] rounded-[5px] border-none" placeholder="A short description of the task you are viewing.
                                 When login has been created by backend people, test login functionality using Postman.
                                 Endpoint is https://azure.nonsense/ujsbuaskbfjks"/>
                             <div className="flex flex-row justify-end">
@@ -60,6 +70,24 @@ export function CreateNewTask() {
                                 </div>
                                 <div className="pt-[27px]">
                                     <p className="font-[HammersmithOne] text-[20px]">Created 12/31/1936</p>
+                                </div>
+                                <div className="flex justify-center flex-col">
+                                    <select value={selectedValue} onChange={handleChange} className="mt-[15px] min-w-[187px] min-h-[39px] text-[#0B7D61] font-[HammersmithOne] text-[24px] rounded-[10px]">
+                                        {options.map((option) => (
+                                            <option className="focus:bg-white" key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="flex justify-center flex-col">
+                                    <select value={selectedValue2} onChange={handleChange2} className="mt-[15px] min-w-[187px] min-h-[39px] text-[#0B7D61] font-[HammersmithOne] text-[24px] rounded-[10px]">
+                                        {options2.map((option) => (
+                                            <option className="focus:bg-white" key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
+                                        ))}
+                                    </select>
                                 </div>
                             </div>
                         </div>
