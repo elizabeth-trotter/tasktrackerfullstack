@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavbarComponent from '../components/NavbarComponent'
 import InviteUserBtn from '@/app/assets/InviteUserBtn.png'
 import PaintBrush from '@/app/assets/PaintBrush.png'
@@ -18,9 +18,11 @@ const Profile = () => {
   const [pencilOver, setPencilOver] = useState(false);
 
   let boardBarColorArray = ['#AEE6D9', '#6FDFC4', '#3EBE9F'];
+  let userColorsArray = ['#57CDFF', '#FF6E6E', '#D59FFF', '#D3FF57', '#FFC56E', '#57CDFF', '#D59FFF', '#57CDFF', '#513DCC'];
 
   const handleUserColorChange = () => {
-    // setUserColor();
+    let randIdx = Math.floor(Math.random() * userColorsArray.length);
+    setUserColor(userColorsArray[randIdx]);
   };
 
   const handleMouseOverPencil = () => {
@@ -29,9 +31,17 @@ const Profile = () => {
   const handleMouseOutPencil = () => {
     setPencilOver(false);
   }
-  
-  const handleUserImageChange = () => {
-    
+
+  const handleUserImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let reader = new FileReader();
+    const file = e.target.files?.[0];
+
+    if (file) {
+      reader.onload = () => {
+        setUserColor(reader.result as string);
+      }
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleMouseOverPaintbrush = () => {
@@ -58,10 +68,14 @@ const Profile = () => {
                 <Image src={RandomizeColor} alt="random color mouseover" height={60} className={`absolute right-40 ${paintBrushOver ? 'block' : 'hidden'}`} />
               </div>
 
-              <div className={`bg-[${userColor}] border border-black rounded-full h-44 w-44`}></div>
+              <div className='border border-black rounded-full h-44 w-44' style={{ background: userColor.startsWith('#') ? userColor : `url(${userColor})`, backgroundPosition: 'center', backgroundSize: 'contain' }}></div>
 
               <div>
-                <Image src={Pencil} alt='add icon button' height={30} onClick={handleUserImageChange} className='cursor-pointer' onMouseOver={handleMouseOverPencil} onMouseOut={handleMouseOutPencil} />
+                <label htmlFor="uploadImage">
+                  <Image src={Pencil} alt='add icon button' height={30} className='cursor-pointer' onMouseOver={handleMouseOverPencil} onMouseOut={handleMouseOutPencil} />
+                </label>
+                <input id="uploadImage" type="file" accept="image/*" className='hidden' onChange={handleUserImageChange} />
+                
                 <Image src={ProfilePicture} alt="random color mouseover" height={60} className={`absolute left-40 ${pencilOver ? 'block' : 'hidden'}`} />
               </div>
 
