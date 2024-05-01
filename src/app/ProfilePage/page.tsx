@@ -9,6 +9,8 @@ import RandomizeColor from '@/app/assets/RandomizeColor.png'
 import ProfilePicture from '@/app/assets/ProfilePicture.png'
 import Image from "next/image";
 import BoardBarComponent from '../components/BoardBarComponent'
+import AddBoardModalComponent from '../components/AddBoardModalComponent'
+import { Button } from 'flowbite-react'
 
 const Profile = () => {
   const [userColor, setUserColor] = useState('#57CDFF');
@@ -16,6 +18,7 @@ const Profile = () => {
   const [dateJoined, setDateJoined] = useState('12/31/1937');
   const [paintBrushOver, setPaintBrushOver] = useState(false);
   const [pencilOver, setPencilOver] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   let boardBarColorArray = ['#AEE6D9', '#6FDFC4', '#3EBE9F'];
   let userColorsArray = ['#57CDFF', '#FF6E6E', '#D59FFF', '#D3FF57', '#FFC56E', '#57CDFF', '#D59FFF', '#57CDFF', '#513DCC'];
@@ -75,7 +78,7 @@ const Profile = () => {
                   <Image src={Pencil} alt='add icon button' height={30} className='cursor-pointer' onMouseOver={handleMouseOverPencil} onMouseOut={handleMouseOutPencil} />
                 </label>
                 <input id="uploadImage" type="file" accept="image/*" className='hidden' onChange={handleUserImageChange} />
-                
+
                 <Image src={ProfilePicture} alt="random color mouseover" height={60} className={`absolute left-40 ${pencilOver ? 'block' : 'hidden'}`} />
               </div>
 
@@ -91,9 +94,10 @@ const Profile = () => {
           <div className='col-span-2 bg-white border border-black rounded-sm p-4 h-[75%]'>
             <div className='pt-5 pb-8 flex justify-center items-baseline gap-3'>
               <h2 className='text-4xl'>MY BOARDS</h2>
-              <button onClick={handleAddBoard}>
+              <button onClick={() => setOpenModal(true)}>
                 <Image src={InviteUserBtn} alt='add icon button' height={20} className='pb-1' />
               </button>
+              <AddBoardModalComponent openModal={openModal} onClose={() => setOpenModal(false)} />
             </div>
             <div className='flex flex-col items-center gap-10 overflow-y-scroll h-[75%]'>
               <BoardBarComponent title={'OUR BOARD'} boardColor={boardBarColorArray[0]} />
