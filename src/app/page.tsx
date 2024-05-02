@@ -6,6 +6,7 @@ import { useState } from "react"; import NavbarComponent from "./components/Navb
 import Profile from "./ProfilePage/page";
 import { useRouter } from "next/navigation";
 import { IToken } from "@/Interfaces/Interface";
+import { createAccount, login } from "@/utils/Dataservices";
 
 export default function Home() {
   const [registerBool, setRegisterBool] = useState<boolean>(true);
@@ -36,29 +37,24 @@ export default function Home() {
     let userData = {
       username: username,
       password: password,
-      confirmPassword: confirmPassword
     };
-
-    if (registerBool) {
-
-      router.push('/ProfilePage');
-
-      //   let token: IToken = await login(userData);
-      //     if (token.token != null) {
-      //       localStorage.setItem("Token", token.token);
-      //       await getUserData(username);
-      //       let userId = await loggedInData()
-
-      //       router.push('/ProfilePage');
-      //     } else {
-      //       alert("Login Failed");
-      //     }
-      //   }
-      // } else{
-      //   // Logic for Create Account
-
-      //   alert("Account Created");
-      // }
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    if (!registerBool) {
+      // Logic for Login
+      let token: IToken = await login(userData);
+      if (token.token != null) {
+        localStorage.setItem("Token", token.token);
+        router.push('/ProfilePage');
+      } else {
+        alert("Login Failed");
+      }
+    } else {
+      // Logic for Create Account
+      createAccount(userData);
+      alert("Account Created");
     }
   }
 
@@ -66,7 +62,7 @@ export default function Home() {
   return (
 
     <div>
-      <NavbarComponent />
+      <NavbarComponent userColor=""/>
       <div className="grid grid-flow-row justify-center pt-[6rem] pb-[145px]">
         <div className="bg-[#3EBE9F] rounded-[5px] py-[70px]">
           <div>
@@ -76,13 +72,13 @@ export default function Home() {
 
             <div className="pb-[30px] px-[70px]">
               <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Username</p>
-              <input type="text" className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
+              <input onChange={(e) => setUsername(e.target.value)} type="text" className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
             </div>
 
             <div className="pb-[30px] px-[70px]">
               <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Password</p>
               <div className='relative flex items-center'>
-                <input type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
+                <input onChange={(e) => setPassword(e.target.value)} type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
                 <div className='absolute right-0 top-0 bottom-0 flex items-center'>
                   <div className='p-2'>
                     <Image src={HideIcon} alt="Hide/Show" onClick={handleHidePassword} />
@@ -94,7 +90,7 @@ export default function Home() {
             {registerBool ? <div className="pb-[40px] px-[70px]">
               <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Confirm Password</p>
               <div className='relative flex items-center'>
-                <input type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
+                <input onChange={(e) => setConfirmPassword(e.target.value)} type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
                 <div className='absolute right-0 top-0 bottom-0 flex items-center'>
                   <div className='p-2'>
                     <Image src={HideIcon} alt="Hide/Show" onClick={handleHidePassword} />
