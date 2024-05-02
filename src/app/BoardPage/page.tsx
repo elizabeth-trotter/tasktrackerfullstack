@@ -7,6 +7,8 @@ import InviteUserPlus from '@/app/assets/InviteUserPlus.png'
 import TaskCardComponent from '../components/TaskCardComponent'
 import { CreateNewTask } from '../components/CreateNewTaskModalComponent'
 import { TaskModal } from '../components/TaskModalComponent'
+import BoardsComponent from '../components/BoardsComponent'
+
 const Board = () => {
     const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
     const [userColor, setUserColor] = useState('#57CDFF');
@@ -15,12 +17,6 @@ const Board = () => {
         setIsTaskModalOpen(true);
     };
     
-    let taskInfo = {
-        title: "Test Login",
-        description: "A short description of the task you are viewi...",
-        priority: 2,
-        userColor: "#FF6E6E"
-    }
     return (
         <div>
             <NavbarComponent userColor={userColor} />
@@ -33,56 +29,10 @@ const Board = () => {
                 <Image src={InviteUserPlus} alt='Invite User' className='h-[24px] w-[24px]' />
 
             </div>
+
             <TaskModal isOpen={isTaskModalOpen} onClose={() => setIsTaskModalOpen(false)} />
-            <div className='bg-[#AEE6D9] rounded-[5px] flex flex-col mx-[110px] mb-[40px]'>
-                <div className='flex flex-row items-center pl-[20px] pt-[10px]'>
-                    <p className='font-[HammersmithOne] text-[28px] mr-[10px]'>To-Do</p>
-                    <CreateNewTask/>
-                </div>
 
-                <div className='flex flex-row overflow-x-scroll px-[50px] py-[25px] gap-10'>
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                </div>
-            </div>
-
-            <div className='bg-[#6FDFC4] rounded-[5px] flex flex-col mx-[110px] mb-[40px]'>
-                <div className='flex flex-row items-center pl-[20px] pt-[10px]'>
-                    <p className='font-[HammersmithOne] text-[28px] mr-[10px]'>In Progress</p>
-                </div>
-
-                <div className='flex flex-row overflow-x-scroll px-[50px] py-[25px] gap-10'>
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                </div>
-            </div>
-
-            <div className='bg-[#3EBE9F] rounded-[5px] flex flex-col mx-[110px] mb-[40px]'>
-                <div className='flex flex-row items-center pl-[20px] pt-[10px]'>
-                    <p className='font-[HammersmithOne] text-[28px] mr-[10px]'>Completed</p>
-                </div>
-
-                <div className='flex flex-row overflow-x-scroll px-[50px] py-[25px] gap-10'>
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                <TaskCardComponent title={taskInfo.title} description={taskInfo.description} priority={taskInfo.priority} color={taskInfo.userColor} onClick={openTaskModal} />                
-                </div>
-            </div>
+            <BoardsComponent openTaskModal={openTaskModal} />
         </div>
     )
 }
