@@ -169,8 +169,8 @@ const BoardsComponent = (props: { openTaskModal: () => void }) => {
                         taskCards.map((task, index) => {
                             if (task.status == 'toDo') {
                                 return (
-                                    <Draggable onStop={(e, position) => handleDrag(index, position)}>
-                                        <div key={index}>
+                                    <Draggable key={index} onStop={(e, position) => handleDrag(index, position)}>
+                                        <div>
                                             <TaskCardComponent id={task.id} status={task.status} position={task.position} title={task.title} description={task.description} priority={task.priority} color={task.userColor} onClick={props.openTaskModal} />
                                         </div>
                                     </Draggable>
@@ -191,7 +191,7 @@ const BoardsComponent = (props: { openTaskModal: () => void }) => {
                         taskCards.map((task, index) => {
                             if (task.status == 'inProgress') {
                                 return (
-                                    <Draggable onStop={(e, position) => handleDrag(index, position)}>
+                                    <Draggable key={index} onStop={(e, position) => handleDrag(index, position)}>
                                         <div key={index}>
                                             <TaskCardComponent id={task.id} status={task.status} position={task.position} title={task.title} description={task.description} priority={task.priority} color={task.userColor} onClick={props.openTaskModal} />
                                         </div>
@@ -213,7 +213,7 @@ const BoardsComponent = (props: { openTaskModal: () => void }) => {
                         taskCards.map((task, index) => {
                             if (task.status == 'completed') {
                                 return (
-                                    <Draggable onStop={(e, position) => handleDrag(index, position)}>
+                                    <Draggable key={index} onStop={(e, position) => handleDrag(index, position)}>
                                         <div key={index}>
                                             <TaskCardComponent id={task.id} status={task.status} position={task.position} title={task.title} description={task.description} priority={task.priority} color={task.userColor} onClick={props.openTaskModal} />
                                         </div>
