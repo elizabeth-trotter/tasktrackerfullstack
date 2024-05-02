@@ -98,6 +98,7 @@ export function TaskModal({ isOpen, onClose }: TaskModalProps) {
                                             value={selectedValue2}
                                             onChange={handleChange2}
                                             className="mt-[15px] min-w-[187px] min-h-[39px] text-[#0B7D61] font-[HammersmithOne] text-[24px] rounded-[10px]"
+                                            
                                         >
                                             {options2.map((option) => (
                                                 <option
