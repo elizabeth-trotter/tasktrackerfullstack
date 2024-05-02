@@ -64,7 +64,7 @@ const Profile = () => {
 
       <div className='bg-[#F1FFFC] h-screen font-[HammersmithOne]'>
         <div className='grid grid-cols-3 gap-8 py-8 px-8'>
-          <div className='flex flex-col items-center gap-7'>
+          <div className='flex flex-col items-center gap-7 col-span-3 lg:col-span-1'>
             <div className='pt-4 flex justify-center items-baseline relative'>
               <div>
                 <Image src={PaintBrush} alt='add icon button' height={30} onClick={handleUserColorChange} className='cursor-pointer' onMouseOver={handleMouseOverPaintbrush} onMouseOut={handleMouseOutPaintbrush} />
@@ -91,7 +91,7 @@ const Profile = () => {
           </div>
 
 
-          <div className='col-span-2 bg-white border border-black rounded-sm p-4 h-[75%]'>
+          <div className='col-span-3 lg:col-span-2 bg-white border border-black rounded-sm lg:p-4 h-[75%]'>
             <div className='pt-5 pb-8 flex justify-center items-baseline gap-3'>
               <h2 className='text-4xl'>MY BOARDS</h2>
               <button onClick={() => setOpenModal(true)}>

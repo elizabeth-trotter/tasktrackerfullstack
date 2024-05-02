@@ -66,16 +66,16 @@ export default function Home() {
       <div className="grid grid-flow-row justify-center pt-[6rem] pb-[145px]">
         <div className="bg-[#3EBE9F] rounded-[5px] py-[70px]">
           <div>
-            {registerBool ? <p className="text-[48px] font-[HoltwoodOneSC] text-center px-[112px]">Create Account</p> : <p className="text-[48px] font-[HoltwoodOneSC] text-center px-[270px]">Login</p>}
+            {registerBool ? <p className="text-[48px] font-[HoltwoodOneSC] text-center px-[50px] lg:px-[112px]">Create Account</p> : <p className="text-[48px] font-[HoltwoodOneSC] text-center px-[50px] lg:px-[270px]">Login</p>}
           </div>
           <div className="pt-[40px]">
 
-            <div className="pb-[30px] px-[70px]">
+            <div className="pb-[30px] px-[30px] lg:px-[70px]">
               <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Username</p>
               <input onChange={(e) => setUsername(e.target.value)} type="text" className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
             </div>
 
-            <div className="pb-[30px] px-[70px]">
+            <div className="pb-[30px] px-[30px] lg:px-[70px]">
               <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Password</p>
               <div className='relative flex items-center'>
                 <input onChange={(e) => setPassword(e.target.value)} type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
@@ -87,7 +87,7 @@ export default function Home() {
               </div>
             </div>
 
-            {registerBool ? <div className="pb-[40px] px-[70px]">
+            {registerBool ? <div className="pb-[40px] px-[30px] lg:px-[70px]">
               <p className="text-[24px] font-[HammersmithOne] pb-[5px] pl-[10px]">Confirm Password</p>
               <div className='relative flex items-center'>
                 <input onChange={(e) => setConfirmPassword(e.target.value)} type={typeInput} className="font-[HammersmithOne] h-[56px] w-full rounded-[10px] border-none pr-10" placeholder="" required />
