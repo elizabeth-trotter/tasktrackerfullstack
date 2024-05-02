@@ -36,7 +36,7 @@ export function CreateNewTask() {
             <Modal show={openModal} size={"5xl"} onClose={() => setOpenModal(false)}>
                 <div className="pt-[50px] px-[50px]">
                     <div className="flex flex-row justify-between items-center">
-                        <input className="text-[48px] font-[HammersmithOne]" placeholder="Task Name"/>
+                        <input className="text-[48px] font-[HammersmithOne] w-full" placeholder="Task Name"/>
                         <Image src={XIcon} alt="X/Close" onClick={() => setOpenModal(false)} />
                     </div>
                 </div>
