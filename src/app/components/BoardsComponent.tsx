@@ -2,12 +2,116 @@ import React from 'react'
 import { CreateNewTask } from './CreateNewTaskModalComponent'
 import TaskCardComponent from './TaskCardComponent'
 
-let taskInfo = {
-    title: "Test Login",
-    description: "A short description of the task you are viewi...",
-    priority: 2,
-    userColor: "#FF6E6E"
-}
+let taskInfo = [
+    {
+        id: 1,
+        status: "toDO",
+        position: { x: 0, y: 0 },
+        title: "Test Login",
+        description: "A short description of the task you are viewi...",
+        priority: 2,
+        userColor: "#FF6E6E"
+    },
+    {
+        id: 2,
+        status: "toDO",
+        position: { x: 0, y: 0 },
+        title: "Praise Ken",
+        description: "A short description of the task you are viewi...",
+        priority: 1,
+        userColor: "#C8C8C8"
+    },
+    {
+        id: 3,
+        status: "toDO",
+        position: { x: 0, y: 0 },
+        title: "Test Create Acc...",
+        description: "A short description of the task you are viewi...",
+        priority: 2,
+        userColor: "#57CDFF"
+    },
+    {
+        id: 4,
+        status: "toDO",
+        position: { x: 0, y: 0 },
+        title: "Set Up Profile...",
+        description: "A short description of the task you are viewi...",
+        priority: 3,
+        userColor: "#D59FFF"
+    },
+    {
+        id: 5,
+        status: "inProgress",
+        position: { x: 0, y: 0 },
+        title: "Login Function...",
+        description: "A short description of the task you are viewi...",
+        priority: 2,
+        userColor: "#FF6E6E"
+    },    
+    {
+        id: 6,
+        status: "inProgress",
+        position: { x: 0, y: 0 },
+        title: "Create Account...",
+        description: "A short description of the task you are viewi...",
+        priority: 1,
+        userColor: "#D59FFF"
+    },
+    {
+        id: 7,
+        status: "inProgress",
+        position: { x: 0, y: 0 },
+        title: "Front End Funct...",
+        description: "A short description of the task you are viewi...",
+        priority: 4,
+        userColor: "#57CDFF"
+    },
+    {
+        id: 8,
+        status: "inProgress",
+        position: { x: 0, y: 0 },
+        title: "Front End Accou...",
+        description: "A short description of the task you are viewi...",
+        priority: 2,
+        userColor: "#FF6E6E"
+    },
+    {
+        id: 9,
+        status: "completed",
+        position: { x: 0, y: 0 },
+        title: "Create Backend",
+        description: "A short description of the task you are viewi...",
+        priority: 1,
+        userColor: "#D59FFF"
+    },
+    {
+        id: 10,
+        status: "completed",
+        position: { x: 0, y: 0 },
+        title: "Add Isaiah",
+        description: "A short description of the task you are viewi...",
+        priority: 2,
+        userColor: "#FF6E6E"
+    },
+    {
+        id: 11,
+        status: "completed",
+        position: { x: 0, y: 0 },
+        title: "Discuss Style S...",
+        description: "A short description of the task you are viewi...",
+        priority: 3,
+        userColor: "#C8C8C8"
+    },
+    {
+        id: 12,
+        status: "completed",
+        position: { x: 0, y: 0 },
+        title: "Create Frontend",
+        description: "A short description of the task you are viewi...",
+        priority: 1,
+        userColor: "#57CDFF"
+    }
+];
 
 const BoardsComponent = (props: { openTaskModal: () => void }) => {
     return (
