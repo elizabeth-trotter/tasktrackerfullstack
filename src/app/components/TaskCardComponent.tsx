@@ -3,9 +3,9 @@ import { describe } from 'node:test'
 import React from 'react';
 import Draggable from 'react-draggable';
 
-const TaskCardComponent = (props: { title: string, description: string, priority: number, color: string, onClick: () => void }) => {
+const TaskCardComponent = (props: {  id: number, status: string, position: { x: number, y: number }, title: string, description: string, priority: number, color: string, onClick: () => void }) => {
     return (
-        <Draggable>
+
             <div onClick={props.onClick}>
                 <div className='bg-white rounded-[10px] py-[14px] px-[20px] min-w-[269px] w-[269px]'>
                     <p className='font-[HammersmithOne] text-[24px]'>{props.title}</p>
@@ -16,7 +16,7 @@ const TaskCardComponent = (props: { title: string, description: string, priority
                     </div>
                 </div>
             </div>
-        </Draggable>
+
     );
 }
 
