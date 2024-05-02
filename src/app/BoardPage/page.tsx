@@ -9,6 +9,7 @@ import { CreateNewTask } from '../components/CreateNewTaskModalComponent'
 import { TaskModal } from '../components/TaskModalComponent'
 const Board = () => {
     const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
+    const [userColor, setUserColor] = useState('#57CDFF');
 
     const openTaskModal = () => {
         setIsTaskModalOpen(true);
@@ -22,7 +23,7 @@ const Board = () => {
     }
     return (
         <div>
-            <NavbarComponent />
+            <NavbarComponent userColor={userColor} />
             <div className='flex flex-row items-center pt-[40px] pl-[67px] pb-[60px]'>
                 <p className='font-[HammersmithOne] text-[32px] pr-[20px]'>OUR BOARD</p>
 
